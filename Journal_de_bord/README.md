@@ -21,7 +21,7 @@ Les difficultés sont les suivantes :
 + qu'est-ce qu'une MWE ?
 + comment repérer les MWE qui sont discontinues ?
 + comment repérer uniquement les MWE (éviter le bruit) ?
-+ comment s'assurer que l'annotation en dépendance reste correcte, même à cause des modifications engendrées par l'annotation d'une MWE (changement de tête) ?
++ comment s'assurer que l'annotation en dépendance reste correcte, malgré les modifications engendrées par l'annotation d'une MWE (changement de tête) ?
 
 # D'où vient l'idée ?
 
