@@ -1,4 +1,4 @@
-Difficultés définitoires
+# Difficultés définitoires
 
 Les MWEs sont assez difficiles à définir. Plusieurs cas sont possibles et plusieurs aspects niveaux linguistiques sont mis en jeu :
 - sémantique : sens compositionnel ou non ?
@@ -8,10 +8,10 @@ Les MWEs sont assez difficiles à définir. Plusieurs cas sont possibles et plus
 Ces questions linguistiques poussent à faire des choix qui ont un impact en TAL. Face à un corpus, un premier problème va être celui de la segmentation : comment tokeniser un corpus en prenant en compte les MWEs ? Faut-il faire des tokens comportant des espaces ou se limiter à une tokenisation basée sur des critères (ortho-)grahiques ? Cette question ne concerne pas directement notre projet dans la mesure où nous ne proposons pas de tokeniser mais elle reste malgré tout essentielle. Un argument avancé dans (Kahane, Courtin, Gerdes, 2018) est qu'une tokenisation qui accepte les espaces dans les tokens risquerait de générer trop d'erreurs difficulté d'apprentissage pour les programmes et trop grande variabilité de tokenisation d'un corpus à l'autre selon les choix opérés, rendant ainsi difficiles les comparaisons inter-corpora.
 
 Si le repérage des MWEs ne se fait pas au niveau de la tokenisation, une façon de rendre compte de ces structures linguistiques particulières est donc d'en faire une analyse syntaxique spécifique. Un autre problème se pose alors : ce qui est appelé "MWE" ne constitue pas un groupe homogène du point du vue du fonctionnement syntaxique. Dans (Kahane, Courtin, Gerdes, 2018), quatre types de MWEs sont proposés :
-1. Les POS et la structure syntaxique de la MWE sont claires pour les locuteurs mais le tout fonctionne différemment de la tête (ex. : 'Dieu sait quoi' a pour tête un verbe mais se comporte comme un pronom, bien que les POS de chacun des mots et les relations syntaxiques soient régulières et claires.)
-2. Soit les POS sont claires mais la structure syntaxique doit être reconstruites diachroniquement (ex. : 'n'importe quoi'), soit les POS sont à reconstruire mais la structure syntaxique est claire (ex. : 'by and large', 'by' étant diachroniquement un adverbe).
-3. Les POS sont claires mais la structure syntaxique ne peut pas être reconstruite (ex. : 'each other', 'à qui mieux mieux')
-4. Les POS comme la structure syntaxiques ne sont pas claires, dans la langue du corpus (ex. : 'ad hoc', 'Al Quaeda', 'parce que')
+1+ Les POS et la structure syntaxique de la MWE sont claires pour les locuteurs mais le tout fonctionne différemment de la tête (ex. : 'Dieu sait quoi' a pour tête un verbe mais se comporte comme un pronom, bien que les POS de chacun des mots et les relations syntaxiques soient régulières et claires.)
+2+ Soit les POS sont claires mais la structure syntaxique doit être reconstruites diachroniquement (ex. : 'n'importe quoi'), soit les POS sont à reconstruire mais la structure syntaxique est claire (ex. : 'by and large', 'by' étant diachroniquement un adverbe).
+3+ Les POS sont claires mais la structure syntaxique ne peut pas être reconstruite (ex. : 'each other', 'à qui mieux mieux')
+4+ Les POS comme la structure syntaxiques ne sont pas claires, dans la langue du corpus (ex. : 'ad hoc', 'Al Quaeda', 'parce que')
 
 Analyser de manière régulière un maximum de structures (que leur sens soit compositionnel ou non) aurait pour avantage d'augmenter les chances d'avoir une bonne analyse syntaxique automatique puisqu'il y aurait plus moins de cas particuliers. L'alternative consiste, dans le cadre d'une annotation avec le schéma UD, à utiliser le lien 'fixed'. D'après (Kahane, Courtin, Gerdes), l'utilisation de ce lien doit être aussi limitée que possible et donc réservée aux cas c) et d) où la structure syntaxique ne peut être reconstituée (dans la langue du corpus). Cependant, si au sein d'une MWE de type c) ou d) se trouvent des fragments réguliers, ils peuvent être annotés avec un lien régulier (ex. :'à qui mieux mieux' on peut analyser 'qui-case->à' de manière régulière).
 
