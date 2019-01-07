@@ -1,8 +1,0 @@
-Lien pour le workgroup UD sur les MWEs :
-https://github.com/UniversalDependencies/docs/blob/pages-source/workgroups/mwe.md
-
-Lien d'un article dont le lien est dispo sur la page indiquée précédemment :
-http://www.anthology.aclweb.org/W/W17/W17-7622.pdf
-
-Lien (inutile) pour les "mwe" UD :
-http://universaldependencies.org/v2/mwe.html
