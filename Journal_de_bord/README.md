@@ -54,18 +54,17 @@ B. Nettoyage de corpus
 Nous travaillerons sur les lemmes pour éviter les problèmes liés à la flexion.
 
 Exemple d'annotation :
-`
+```
 1	ou	ou	CCONJ	_	_	5	cc	_	MWEPOS=CCONJ
 2	bien	bien	ADV	_	_	1	fixed	_	INMWE=Yes
 3	vous	vous	PRON	_	_	5	nsubj	_	_
 4	le	le	PRON	_	_	5	obj	_	_
 5	pensez	penser	VERB	_	_	0	root	_	_
 6	vraiment	vraiment	ADV	_	_	5	advmod	_	_
-`
+```
 
 
-`
-
+```
 1	euh	euh	INTJ	_	_	4	discourse	_	_
 2	il	il	PRON	_	_	4	nsubj:expl	_	_
 3	y	y	PRON	_	_	4	iobj	_	_
@@ -75,4 +74,4 @@ Exemple d'annotation :
 7	aussi	aussi	ADV	_	_	4	advmod	_	_
 8	à	à	ADP	_	_	9	case	_	INMWE=Yes
 9	côté	côté	NOUN	_	_	4	obl:mod	_	MWEPOS=ADV
-`
+```
