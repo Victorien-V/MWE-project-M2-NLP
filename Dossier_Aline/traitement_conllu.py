@@ -1,7 +1,20 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+"""
+module pour lire du conllu
+read_file(path) permettra de lire un fichier conllu
+	retour : une liste de Sent() ayant des attributs .tree
+	ces derniers sont des listes de Word()
+"""
+
+import sys
+
 class Word:
+	"""
+	définit un 'mot' dans un conllu
+	les attributs sont ceux définis dans la doc UD (http://universaldependencies.org/format.html)
+	"""
 	def __init__(self, line):
 		line=line.strip().split('\t') #découpage de la ligne (10 éléments au total)
 		self.nid = line[0]
@@ -18,11 +31,11 @@ class Word:
 class Sent:
 	"""
 	définit une phrase dans un conllu
-	sent_id = n° id de la phrase
-	sent_text = texte de la phrase
-	sent_tree = arbre de la phrase
-	sent_len = longueur de la phrase (en nb de mots, d'après la taille de l'arbre)
-	Cet arbre est composé de mots de la classe Word
+	id = n° id de la phrase
+	text = texte de la phrase
+	sentlen = longueur de la phrase (en nb de mots, d'après la taille de l'arbre)
+	tree = arbre de la phrase
+	N.B.: Cet arbre est une liste de mots de la classe Word
 	"""
 	def __init__(self, element):
 		#element --> l'arbre d'une phrase+les métadonnées
@@ -71,8 +84,7 @@ def ecrit_nouveau(conllu,path):
 		for s in conllu:
 			out.write("# sent_id = "+s.id+"\n"+"# text = "+s.text+"\n")
 			for w in s.tree:
-				w.xpos="_"
 				out.write(
-					w.nid+"\t"+w.form+"\t"+w.lemma+"\t"+w.upos+"\t_\t"+w.feats+"\t"+w.head+"\t"+w.deprel+"\t"+w.deps+"\t"+w.misc+"\n"
+					w.nid+"\t"+w.form+"\t"+w.lemma+"\t"+w.upos+"\t"+w.xpos+"\t"+w.feats+"\t"+w.head+"\t"+w.deprel+"\t"+w.deps+"\t"+w.misc+"\n"
 				)
 			out.write("\n")
