@@ -11,6 +11,15 @@ Ce dossier est le dossier de travail de Aline.
 + `lexiqueNO.txt` : un lexique d'éléments annotés en `fixed` dans les treebanks UD du français qui ne devraient pas l'être
 + `lexiqueSYNT_POS.tsv` : lexique de MWEs à annoter en syntaxe (soit de manière régulière), avec dans la deuxième colonne la POS à mettre derrière le trait `MWEPOS=`
 
+# Ce qui reste à faire, dans l'idéal
+
+1. Elaborer d'autres lexiques
+2. Faire un script qui permet de :
+a. Repérer les MWEs par le texte (pas les relations de dépendance) ?
+b. Proposer des schémas pour annoter en syntaxe des MWEs : ça pourrait prendre la forme d'un lexique avec des portions de conllu ; il faudrait bien sûr que ça permette de conserver une annotation correcte et cohérente des relations de syntaxe !
+c. Pour le fichier de sortie qui présente les problèmes/candidats MWEs potentiels, on pourrait imaginer une sortie html un peu plus visuelle, avec des couleurs pour mettre les MWEs en évidence. Mais ce n'est pas vraiment la priorité...
+d. Eventuellement, modifier le script pour qu'il devienne interactif : plutôt que de faire une sortie de MWEs potentielles, on peut imaginer que le script demande à l'utilisateur et que selon sa réponse, le comportement du logiciel change. Mais encore une fois, ce n'est pas vraiment une priorité je pense... 
+
 # Origine des lexiques
 
 Les lexiques sont disponibles [ici](https://github.com/bguil/UD-French-discussion).
