@@ -16,11 +16,10 @@ Ce dossier est le dossier de travail de Aline.
 Les lexiques sont disponibles [ici](https://github.com/bguil/UD-French-discussion).
 
 Plus d'infos sur les lexiques :
-```
-Voici deux fichiers .tsv de lexiques obtenus d'après le tableur Framacalc (https://lite.framacalc.org/fixed_UD_French). 
+
+"Voici deux fichiers .tsv de lexiques obtenus d'après le tableur [Framacalc](https://lite.framacalc.org/fixed_UD_French). 
 Les POS ont été ajoutées en partie automatiquement à partir du lexique d'Orféo et en partie manuellement.
 Ces fichiers doivent être corrigés sur deux points principaux : 1.les candidats MWE (ex. "à côté de") 2.les POS.
 
 Le fichier "lexiqueNO.txt" contient une liste de termes qui ne sont (normalement) pas retenus comme MWE.
-Le fichier "lexiqueDESACCORD.txt" contient une liste de termes pour lesquels il faut décider s'il s'agit de MWE ou pas, et si oui, s'ils sont fixed ou à analyser automatiquement.
-```
+Le fichier "lexiqueDESACCORD.txt" contient une liste de termes pour lesquels il faut décider s'il s'agit de MWE ou pas, et si oui, s'ils sont fixed ou à analyser automatiquement."
