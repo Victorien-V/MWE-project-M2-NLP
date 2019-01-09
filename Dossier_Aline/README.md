@@ -13,12 +13,12 @@ Ce dossier est le dossier de travail de Aline.
 
 # Ce qui reste à faire, dans l'idéal
 
-1. Elaborer d'autres lexiques
-2. Faire un script qui permet de :
-a. Repérer les MWEs par le texte (pas les relations de dépendance) ?
-b. Proposer des schémas pour annoter en syntaxe des MWEs : ça pourrait prendre la forme d'un lexique avec des portions de conllu ; il faudrait bien sûr que ça permette de conserver une annotation correcte et cohérente des relations de syntaxe !
-c. Pour le fichier de sortie qui présente les problèmes/candidats MWEs potentiels, on pourrait imaginer une sortie html un peu plus visuelle, avec des couleurs pour mettre les MWEs en évidence. Mais ce n'est pas vraiment la priorité...
-d. Eventuellement, modifier le script pour qu'il devienne interactif : plutôt que de faire une sortie de MWEs potentielles, on peut imaginer que le script demande à l'utilisateur et que selon sa réponse, le comportement du logiciel change. Mais encore une fois, ce n'est pas vraiment une priorité je pense... 
+A. Elaborer d'autres lexiques
+B. Faire un script qui permet de :
+1. Repérer les MWEs par le texte (pas les relations de dépendance) ?
+2. Proposer des schémas pour annoter en syntaxe des MWEs : ça pourrait prendre la forme d'un lexique avec des portions de conllu ; il faudrait bien sûr que ça permette de conserver une annotation correcte et cohérente des relations de syntaxe !
+3. Pour le fichier de sortie qui présente les problèmes/candidats MWEs potentiels, on pourrait imaginer une sortie html un peu plus visuelle, avec des couleurs pour mettre les MWEs en évidence. Mais ce n'est pas vraiment la priorité...
+4. Eventuellement, modifier le script pour qu'il devienne interactif : plutôt que de faire une sortie de MWEs potentielles, on peut imaginer que le script demande à l'utilisateur et que selon sa réponse, le comportement du logiciel change. Mais encore une fois, ce n'est pas vraiment une priorité je pense... 
 
 # Origine des lexiques
 
