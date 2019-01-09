@@ -14,7 +14,9 @@ Ce dossier est le dossier de travail de Aline.
 # Ce qui reste à faire, dans l'idéal
 
 A. Elaborer d'autres lexiques
+
 B. Faire un script qui permet de :
+
 1. Repérer les MWEs par le texte (pas les relations de dépendance) ?
 2. Proposer des schémas pour annoter en syntaxe des MWEs : ça pourrait prendre la forme d'un lexique avec des portions de conllu ; il faudrait bien sûr que ça permette de conserver une annotation correcte et cohérente des relations de syntaxe !
 3. Pour le fichier de sortie qui présente les problèmes/candidats MWEs potentiels, on pourrait imaginer une sortie html un peu plus visuelle, avec des couleurs pour mettre les MWEs en évidence. Mais ce n'est pas vraiment la priorité...
