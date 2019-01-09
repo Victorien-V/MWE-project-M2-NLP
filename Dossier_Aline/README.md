@@ -8,7 +8,7 @@ Ce dossier est le dossier de travail de Aline.
 + `traitement_conllu.py` : script qui sert de module dans le script `brouillon.py` et qui permet notamment de lire un fichier conllu.
 + `sortie_candidats.txt` : la sortie après l'exécution du script `brouillon.py` qui contient les phrases avec la ou les MWEs potentielles mises en évidence
 + `lexiqueFIXED_POS.tsv` : lexique de MWE à annoter en fixed. Première colonne --> les MWEs, deuxième colonne --> la POS du tout, à mettre derrière le trait 'MWEPOS='
-+`lexiqueNO.txt` : un lexique d'éléments annotés en `fixed` dans les treebanks UD du français qui ne devraient pas l'être
++ `lexiqueNO.txt` : un lexique d'éléments annotés en `fixed` dans les treebanks UD du français qui ne devraient pas l'être
 + `lexiqueSYNT_POS.tsv` : lexique de MWEs à annoter en syntaxe (soit de manière régulière), avec dans la deuxième colonne la POS à mettre derrière le trait `MWEPOS=`
 
 # Origine des lexiques
