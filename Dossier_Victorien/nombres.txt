@@ -429,7 +429,6 @@ deux cent vingt et un
 dix - huit
 dix - neuf
 dix - sept
-huit
 huit cent
 huit cent cinq
 huit cent cinquante
@@ -738,7 +737,6 @@ octante - sept
 octante - six
 octante - trois
 octante et un
-quarante
 quarante - cinq
 quarante - deux
 quarante - huit
@@ -748,7 +746,6 @@ quarante - sept
 quarante - six
 quarante - trois
 quarante et un
-quatre
 quatre - vingt
 quatre - vingt - cinq
 quatre - vingt - deux
@@ -909,7 +906,6 @@ quatre cent vingt - sept
 quatre cent vingt - six
 quatre cent vingt - trois
 quatre cent vingt et un
-seize
 sept cent
 sept cent cinq
 sept cent cinquante
@@ -1218,7 +1214,6 @@ soixante - treize
 soixante - trois
 soixante et onze
 soixante et un
-trente
 trente - cinq
 trente - deux
 trente - huit
