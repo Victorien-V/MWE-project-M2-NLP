@@ -33,7 +33,7 @@ Ensuite, Aline a eu l'occasion de travailler sur l'annotation du corpus [French 
 
 + **11 nov. 2018** : début de réflexion sur le sujet du projet
 + **14 nov. 2018** : sujet global fixé, approuvé par les enseignants
-+ **du 14 nov. 2018 au ?? déc. 2018** : recherche de documentation sur les MWE
++ **du 14 nov. 2018 au 24 déc. 2018** : recherche de documentation sur les MWE
 
 # Plan d'attaque
 
