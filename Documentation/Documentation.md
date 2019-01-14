@@ -3,7 +3,8 @@
 
 #### Auteurs : Aline Etienne, Elena Edelman, Victorien Villiers
 
-#### Sujet du projet : gestion de MWEs dans un fichier conllu
+#### Sujet du projet
+Gestion de MWEs dans un fichier conllu
 
 #### Lien vers le git : https://github.com/Victorien-V/MWE-project-M2-NLP
 
