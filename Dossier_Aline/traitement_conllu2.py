@@ -9,6 +9,8 @@ read_file(path) permettra de lire un fichier conllu
 """
 
 import sys
+import nltk
+import re
 
 class Word:
 	"""
@@ -35,11 +37,17 @@ class Sent:
 	text = texte de la phrase
 	sentlen = longueur de la phrase (en nb de mots, d'après la taille de l'arbre)
 	tree = arbre de la phrase
+	lem_list = liste des lemmes de la phrase
+	lem_2g = liste des bigrammes de lemmes
+	lem_3g = liste des trigrammes de lemmes
+	lem_4g = liste de 4-gram de lemmes
+	lem_5g = liste de 5-gram de lemmes
 	N.B.: Cet arbre est une liste de mots de la classe Word
 	"""
 	def __init__(self, element):
 		#element --> l'arbre d'une phrase+les métadonnées
 		tree=[]
+		lem_list=[]
 		lines=element.split('\n') #liste de lignes
 		for line in lines:
 			if line.startswith('#'):
@@ -53,9 +61,15 @@ class Sent:
 				#if not mot.nid.isdigit():
 					#continue
 				tree.append(mot)
+				lem_list.append((re.sub("\+le",'',mot.lemma),mot.nid))
 				
-			self.tree=tree #arbre de la phrase
-			self.sentlen=len(tree)
+			self.tree = tree #arbre de la phrase
+			self.sentlen = len(tree)
+			self.lem_list = lem_list
+			self.lem_2g = nltk.bigrams(lem_list)
+			self.lem_3g = nltk.trigrams(lem_list)
+			self.lem_4g = nltk.ngrams(lem_list, 4)
+			self.lem_5g = nltk.ngrams(lem_list, 5)
 
 def read_file(path):
 	"""
