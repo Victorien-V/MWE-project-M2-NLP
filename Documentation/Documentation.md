@@ -1,14 +1,17 @@
 #### Projet universitaire dans le cadre du master 2 TAL Plurital (Inalco-Nanterre-Paris III)
-#### Matière : Langage de script (programmation Python pour le TAL)
+#### Matière
+Langage de script (programmation Python pour le TAL)
 
-#### Auteurs : Aline Etienne, Elena Edelman, Victorien Villiers
+#### Auteurs
+Aline Etienne, Elena Edelman, Victorien Villiers
 
 #### Sujet du projet
 Gestion de MWEs dans un fichier conllu
 
 #### Lien vers le git : https://github.com/Victorien-V/MWE-project-M2-NLP
 
-#### Corpus : Corpus universel du français parlé au format conllu convertie automatiquement depuis le treebank Rhapsodie (http://www.projet-rhapsodie.fr/).
+#### Corpus
+Corpus universel du français parlé au format conllu convertie automatiquement depuis le treebank Rhapsodie (http://www.projet-rhapsodie.fr/).
 
 Divisé en 3 sous-corpus (train, dev, test) :
 + fr_spoken-ud-train.conllu 1153 sentences  14952 tokens
@@ -22,9 +25,11 @@ Taille : retranscription de 30h de parole
 Documentation : corpus annoté issus des travaux réalisés par les équipes de MODYCO, de l'IRCAM, du LATTICE, de l'ERSS et du LPL. Lien vers les publications : https://www.projet-rhapsodie.fr/bibliographie/
 Licence et droit d'utilisation : Licence Creative Commons Attribution, citation des sources des corpus dans le respect des propriétés intellectuelles selon qu'il s'agisse de corpus externe ou interne 
 
-#### Travail définitoire : voir le fichier "resume_KahaneCourtinGerdes.txt"
+#### Travail définitoire
+voir le fichier "resume_KahaneCourtinGerdes.txt"
 
-#### Liens utiles : voir le fichier 
+#### Liens utiles
+voir le fichier "liens_utiles.txt"
 
 #### Résumé du projet et étapes
 
@@ -77,7 +82,7 @@ B. Nettoyage de corpus
 
 Nous travaillerons sur les lemmes pour éviter les problèmes liés à la flexion.
 
-Exemple d'annotation en sortie :
+# Exemple d'annotation en sortie :
 ```
 1	ou	ou	CCONJ	_	_	5	cc	_	MWEPOS=CCONJ
 2	bien	bien	ADV	_	_	1	fixed	_	INMWE=Yes
