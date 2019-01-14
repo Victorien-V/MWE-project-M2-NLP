@@ -61,7 +61,7 @@ class Sent:
 				#if not mot.nid.isdigit():
 					#continue
 				tree.append(mot)
-				lem_list.append((re.sub("\+le",'',mot.lemma),mot.nid))
+				lem_list.append((re.sub("\+le",'',mot.lemma),mot))
 				
 			self.tree = tree #arbre de la phrase
 			self.sentlen = len(tree)

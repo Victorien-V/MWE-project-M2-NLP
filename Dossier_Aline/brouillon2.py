@@ -3,14 +3,17 @@
 
 """
 Pour lancer le script :
-python3 brouillon2.py corpus.conllu lexique_fixed.tsv
+python3 brouillon2.py corpus.conllu lexique_fixed.tsv lexique_synt.tsv
+
+Par exemple :
+python3 brouillon2.py ../Corpus/fr_spoken-ud-train.conllu  lexiqueFIXED_POS.tsv lexique_test.tsv
 """
 
 import sys #pour accéder aux arguments fournis en ligne de commande
-import traitement_conllu as tc
+import traitement_conllu as tc #pour lire et stocker le conllu
 from collections import defaultdict
 import re
-import nltk
+import nltk #pour les n-grammes de lemmes
 
 #------Fonctions------
 def defait_liste(liste):
@@ -27,15 +30,19 @@ def defait_liste(liste):
 def dico_lexique(path):
 	"""
 	prend le chemin d'un lexique au format .tsv
-	retourne un dico avec en clé la MWE et en valeur la POS
+	retourne un dico avec en clé la MWE et en valeur la POS (ou un tuple (POS,position tête))
 	"""
-	
-	dico_lexique={line.split("\t")[0]:line.split("\t")[1] for line in open(path).read().split("\n")}
+	try : #cas des lexiques de la forme mwe\tPOS\tposition_de_la_tête
+		dico_lexique={line.split("\t")[0]:(line.split("\t")[1],line.split("\t")[2]) for line in open(path).read().split("\n")}
+	except IndexError : #cas des lexiques de la forme mwe\tPOS
+		dico_lexique={line.split("\t")[0]:line.split("\t")[1] for line in open(path).read().split("\n")}
 	
 	return dico_lexique
 
 def tri_lexique_relation(conllu,lexique,relation):
 	"""
+	utilise une relation de dépendance prédéfinie pour repérer des suites de mots dans un corpus
+	trie ensuite ces suites de mots selon si elles sont dans un lexique ou pas
 	entrée : un conllu issu de read_file(), un lexique, une relation de dépendance
 	sortie :
 	- un dico {phrase du conllu : les suites de mots présentes dans le lexique, pour cette phrase}
@@ -135,38 +142,137 @@ def pop_ngram(lem_list, lem_gram, lex_gram, mwe_list):
 					pass
 					
 	return lem_list, mwe_list
+	
+def match_indices(mwe,lemmes):
+	"""
+	entrée : une mwe sous forme de liste, une liste de lemmes
+	sortie : une liste de listes d'indices, si la mwe est dans la liste de lemmes
+	"""
+	i=0
+	liste_indices=[]
+	while i < len(lemmes): #on parcourt la liste de lemmes
+		if lemmes[i] == mwe[0] : #si un élément correspond au 1er élément de la mwe
+			indices=[] #on crée une liste qui va accueillir les indices correspondant aux mots de la mwe
+			for j in range(len(mwe)):
+				try:
+					if lemmes[i+j] == mwe[j]:
+						indices.append(i+j)
+					else:
+						indices.clear()
+				except IndexError:
+					indices.clear()
+			if len(mwe) != len(indices):
+				indices.clear()
+			if indices :
+				liste_indices.append(indices)
+			i=i+j
+		else:
+			i+=1
+		
+	return liste_indices
+		
+def match_indices2(lex,lemmes):
+	"""
+	complète la fonction match_indices()
+	entrée :
+	- une liste correspondant à un lexique de mwe
+	- une liste de lemmes
+	"""
+	liste_indicesMWE=[]
+	for mwe in lex:
+		indices=match_indices(mwe,lemmes)
+		if indices:
+			#print(indices)
+			liste_indicesMWE.append((indices, " ".join(mwe)))
+			
+	return liste_indicesMWE
+	
+def tri_lexique_lemme(corpus,lex_5g,lex_4g,lex_3g,lex_2g,dict_lexique):
+	"""
+	dans un corpus, retrouve les mwes d'un lexique donné en passant par les lemmes
+	entrée : 
+	- corpus .conllu (lu par read_file())
+	- lexiques de mwe ordonnées par tailles de mwe
+	- dico {'mwe' : 'POS associée'}
+	sortie :
+	- dico {phrase : [liste de mots Word correspondant aux mwes de la phrase]}
+	"""
+	
+	phrase_liste_mwe=defaultdict(lambda:list()) #dico des {phrase : [liste de Word qui constituent les mwe de la phrase]}
+	
+	for phrase in corpus:	
+		lemmes=[lemme[0] for lemme in phrase.lem_list] #on stocke la liste de lemmes
+		
+		#pour chaque mwe, si elle est dans la phrase, 
+		#on récupère les indices correspondants à la position des lemmes dans la liste de lemmes	
+		
+		indices_phrase=[
+			match_indices2(lex_5g,lemmes),
+			match_indices2(lex_4g,lemmes),
+			match_indices2(lex_3g,lemmes),
+			match_indices2(lex_2g,lemmes),
+		]
+		
+		#on va remplacer chaque indice par le mot Word correspondant
+		for mwe in indices_phrase :
+			if mwe: #s'il y a au moins un tuple ([liste d'indices],'mwe')
+				for couple in mwe:
+					#on traite les indices d'abord
+					for item in couple[0]: #au cas où une même mwe soit plusieurs fois dans une même phrase
+						for i in item : #pour chaque indice
+							mot=phrase.lem_list[i][1] #on récupère le Word associé au lemme grâce à l'indice
+							#print(mot.form)
+							if item.index(i) == int(dict_lexique[couple[1]][1])-1 : mot.misc = "MWEPOS="+dict_lexique[couple[1]][0] #pour la tête
+							else : mot.misc = "INMWEPOS=Yes"
+							
+							phrase_liste_mwe[phrase].append(mot)
+							
+	return phrase_liste_mwe
 
 #------Variables------
-p_corpus=sys.argv[1] #chemin du corpus
-p_lexique_fixed=sys.argv[2] #chemin du lexique MWE fixed
-#print(p_corpus+'\n'+p_lexique_fixed)
+path_corpus=sys.argv[1] #chemin du corpus
+path_lexique_fixed=sys.argv[2] #chemin du lexique MWE fixed
+path_lexique_synt=sys.argv[3] #chemin du lexique MWE non-fixed
+#print(path_corpus+'\n'+path_lexique_fixed+'\n'+path_lexique_synt)
 
 #------Exécution------
 if __name__ == '__main__':
 
 	#on stocke le corpus dans la variable corpus en appelant la fonction 'read_file' de 'traitement_conllu'
 	#on obtient une liste d'objets Sent(), contenant eux-mêmes des arbres (tree) qui sont des listes d'objets Word()
-	corpus=tc.read_file(p_corpus)
+	corpus=tc.read_file(path_corpus)
 	#print(corpus[0].text+'\n'+corpus[0].tree[0].lemma)
 
 	#on récupère le lexique et on le stocke dans un dico
-	lexique_fixed=dico_lexique(p_lexique_fixed)
-	#print(type(lexique_fixed),lexique_fixed)
+	lexique_fixed=dico_lexique(path_lexique_fixed)
+	lexique_synt=dico_lexique(path_lexique_synt)
 	
 	#pour chaque mot, on regarde s'il gouverne d'autres mots par un lien 'fixed'
 	dans_lexique_fixed,pas_dans_lexique_fixed=tri_lexique_relation(corpus,lexique_fixed,'fixed')
+	
+	#on récupère le lexique en entrée qu'on divise en sous-listes selon le nombre de tokens
+	lexique, lex_2g, lex_3g, lex_4g, lex_5g = lex2ngrams(path_lexique_synt)
+	#on parcourt le corpus par les lemmes, à la recherce de mwe
+	dico_phrases_mwes=tri_lexique_lemme(corpus,lex_5g,lex_4g,lex_3g,lex_2g,lexique_synt)
 	
 	#---Nouveau fichier avec les MWE avec un trait MWEPOS/INMWE
 	corpus2=corpus[:] #on copie notre corpus initial
 	
 	#pour chaque phrase, on va remplacer les mots des mwes par ceux modifiés (avec le trait MWEPOS/INMWE)
 	for phrase in corpus2:
-		if phrase in dans_lexique_fixed :
+		if phrase in dans_lexique_fixed : #les phrases avec des MWEs annotées en 'fixed'
 			mwes=defait_liste(dans_lexique_fixed[phrase]) #liste de tous les mots de toutes les mwes dans la phrase
 			for mot in phrase.tree :
 				for m in mwes :
 					if mot.nid == m.nid : #comme on est dans la même phrase, deux mots ayant le même identifiant ne font qu'un
 						mot=m #on remplace
+	
+		if phrase in dico_phrases_mwes: #les phrases avec des MWEs annotées autrement
+			for mot in phrase.tree:
+				for m in dico_phrases_mwes[phrase]:
+					if mot.nid == m.nid :
+						mot = m
+			
 	
 	#écriture du nouveau conllu grâce à la fonction ecrit_nouveau() du module traitement_conllu
 	tc.ecrit_nouveau(corpus2,"conllu_modifie.conllu")
@@ -197,57 +303,3 @@ if __name__ == '__main__':
 				if w.nid in id_fin_mwe :
 					out.write("#------Fin MWE------\n")
 			out.write("\n")
-	
-	####N-GRAMS Victorien
-	#on récupère le lexique en entrée qu'on divise en sous-listes selon le nombre de tokens
-	lexique, lex_2g, lex_3g, lex_4g, lex_5g = lex2ngrams(p_lexique_fixed)
-	
-	#on parse le corpus à la recherche des mwe du lexique
-	#on commencera par les mwe les plus longues, qu'on supprimera au fur et à mesure
-	#afin d'éviter les doublons tels que "dès lors que" / "dès lors"
-	
-	def match_indices(mwe,lemmes):
-		"""
-		entrée : une mwe sous forme de liste, une liste de lemmes
-		sortie : une liste de listes d'indices, si la mwe est dans la liste de lemmes
-		"""
-		i=0
-		liste_indices=[]
-		while i < len(lemmes):
-			if lemmes[i] == mwe[0] :
-				indices=[]
-				for j in range(len(mwe)):
-					try:
-						if lemmes[i+j] == mwe[j]:
-							indices.append(i+j)
-						else:
-							indices.clear()
-					except IndexError:
-						indices.clear()
-				liste_indices.append(indices)
-				i=i+j
-			else:
-				i+=1
-		
-		return [e for e in liste_indices if e]
-	
-	for phrase in corpus:
-	
-		lemmes=[lemme[0] for lemme in phrase.lem_list]
-		indices_phrase=[]
-		mwes_phrase=[] #liste des mwes de la phrase, en tant qu'identifiant dans la phrase
-		
-		for mwe5 in lex_5g:
-			indices_phrase.extend(match_indices(mwe5,lemmes))
-		for mwe4 in lex_4g:
-			indices_phrase.extend(match_indices(mwe4,lemmes))
-		for mwe3 in lex_3g:
-			indices_phrase.extend(match_indices(mwe3,lemmes))
-		for mwe2 in lex_2g:
-			indices_phrase.extend(match_indices(mwe2,lemmes))
-			
-		for m in indices_phrase:
-			for i in m:
-				mwes_phrase.append(phrase.lem_list[i][1])
-		print(mwes_phrase)
-		

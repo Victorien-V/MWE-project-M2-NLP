@@ -1,9 +1,9 @@
 aussi bien	ADV
 à base de	ADP
-à bien ADV
-à bord ADV
+à bien	ADV
+à bord	ADV
 à cause de	ADP
-à cause	 ADV
+à cause	ADV
 à ce effet	ADV
 à ce égard	ADV
 à ce sujet	X
@@ -11,13 +11,13 @@ aussi bien	ADV
 à compter	ADV
 à condition que	SCONJ
 à coup	ADV
-à coup sûr  ADV
+à coup sûr	ADV
 à court de	ADP
 à court terme	ADJ
 à côté	ADV
 à fond	ADV
 à hauteur de	ADP
-à hauteur  ADV
+à hauteur	ADV
 à juste titre	ADV
 à le bas mot	ADV
 à le cœur de	ADP
@@ -41,7 +41,6 @@ aussi bien	ADV
 à le juste	ADV
 à le lettre	ADV
 à le lieu	ADV
-à le maximum	ADV  divergence avec PARSEME.FR, le critère DET ne fonctionne pas : "à un grand maximum"
 à le mode	ADP
 à le moins	ADV
 à le motif que	SCONJ
@@ -64,7 +63,7 @@ aussi bien	ADV
 à même	ADJ
 à merveille	ADV
 à mesure que	SCONJ
-à moins	 ADV
+à moins	ADV
 à moins de	ADP
 à moins que	SCONJ
 à nouveau	ADV
@@ -75,9 +74,8 @@ aussi bien	ADV
 à présent	ADV
 à priori	ADV
 à proprement parler	ADV
-à propos     ADV
-à raison     ADV
-guy à proximité	ADV  c'est une divergence par rapport à PARSEME-FR
+à propos	ADV
+à raison	ADV
 à savoir	ADV
 à terme	ADV
 à titre de	ADP
@@ -89,24 +87,24 @@ guy à proximité	ADV  c'est une divergence par rapport à PARSEME-FR
 bel et bien	ADV
 bien entendre	ADV
 bien  sûr	ADV
-ce être pourquoi    ADV
+ce être pourquoi	ADV
 comme si de rien ne être	VERB 
 compte rendu	NOUN
 compte tenir	ADV
 contre mauvais fortune bon coeur	X
 dans le mesure où	ADV
-de ailleurs    ADV
-de abord       ADV
+de ailleurs	ADV
+de abord	ADV
 de avance	ADV
 de avis	ADV
 de bon ton	ADJ
 de ce fait	ADV
 de façon à ce que	SCONJ
-de habitude   ADV
+de habitude	ADV
 de ici	ADV
 de ici	ADP
 de le côté de	ADP
-de le fait ADV
+de le fait	ADV
 de le même coup	X
 de le moins	ADV
 de le part de	ADP
@@ -114,7 +112,7 @@ de le reste	ADV
 de le tout	ADV
 de le tout à le tout	ADV
 de manière à	ADP
-de nouveau ADV
+de nouveau	ADV
 de part et de autre	ADV
 de peu	ADV
 guy de plus en plus de	ADP
@@ -134,13 +132,9 @@ dès lors	ADV
 dès que	SCONJ
 en - dessous de	ADP
 en avant	ADV
-en bas	ADV  divergence par rapport à PARSEME.FR
-en bref	ADV  discutable car en + adj est très productif
 en cas de	ADP
 en ce qui concerner	VERB
 en charge de	ADP
-en commmun	ADV  discutable car en + adj est très productif
-en continu	ADV  discutable car en + adj est très productif
 en cours	ADJ
 en définitif	ADV
 en dépit de	ADP
@@ -151,20 +145,15 @@ en fait	ADV
 en faveur de	ADP
 en fin de compte	ADV
 en fonction de	ADP
-en général  ADV  discutable car en + adj est très productif
-en haut	ADV divergence par rapport à PARSEME.FR
 en le occurrence	ADV
 en matière de	ADP
 en même temps	ADV
 en mesure	ADJ
 en outre	ADV
-en parallèle	ADV  discutable car en + adj est très productif
-en particulier	ADV  discutable car en + adj est très productif
 en partie	ADV
-en plein	ADV  suivi d'un groupe prépositionnel
 en plus	ADV
 en présence de	ADP
-en privé    ADV
+en privé	ADV
 en provenance de	ADP
 en qualité	ADV
 en raison	ADV
@@ -180,7 +169,6 @@ en train	ADP
 en vain	ADV
 en vertu de	ADP
 en vertu	ADV
-en vue		ADV suivi de "de"
 en vue	ADJ
 encore que	SCONJ
 en-dessous de	ADP
@@ -199,7 +187,6 @@ histoire de	ADP
 hors de	ADP
 hors pair	ADJ
 il être vrai	VERB
-il y avoir	ADP
 in vitro	ADV
 jusque en	ADP
 le long		ADV
@@ -219,13 +206,13 @@ par ailleurs	ADV
 par conséquent	ADV
 par contre	ADV
 par dessus tout	ADV
-par dessus  ADP
+par dessus	ADP
 par exemple	ADV
 par le biais de	ADP
 par le suite	X
 par rapport à	ADP
 par suite	ADV
-pas mal		ADV
+pas mal	ADV
 pendant que	SCONJ
 petit à petit	ADV
 petit déjeuner	NOUN
