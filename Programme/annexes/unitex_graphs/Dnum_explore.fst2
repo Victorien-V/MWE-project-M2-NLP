@@ -1,0 +1,64 @@
+0000000004
+-1 Dnum_explore
+: -2 7 -3 6 -4 3 10 5 9 4 8 3 7 3 4 2 3 1 
+t 5 9 1 8 
+: 5 10 
+t 
+: -2 3 -3 6 -4 3 8 3 7 3 4 2 3 1 2 3 
+: -2 11 -3 6 -4 3 9 4 8 3 7 3 4 2 3 1 
+t 5 13 1 12 
+t 10 5 9 4 
+: 8 3 2 3 
+: -2 3 -4 3 7 3 
+: 6 14 
+t 9 4 
+: 2 3 
+: -2 3 
+t 5 15 
+: -2 3 -4 3 8 3 7 3 2 3 
+f 
+-2 Dnum2
+: 17 1 16 1 15 1 14 1 13 1 12 1 11 1 4 1 
+t 
+f 
+-3 Dnum20
+: 24 1 23 1 22 1 21 1 20 1 19 1 18 1 6 1 
+t 
+f 
+-4 Dnum12
+: 29 2 28 2 27 2 26 2 25 2 7 1 
+: 5 3 
+t 
+: 17 2 16 2 15 2 
+f 
+%<E>
+%et
+%un
+%soixante
+%quatre
+%-
+%vingt
+%dix
+%onze
+%cent
+%mille
+%deux
+%trois
+%cinq
+%six
+%sept
+%huit
+%neuf
+%trente
+%quarante
+%cinquante
+%septante
+%octante
+%huitante
+%nonante
+%douze
+%treize
+%quatorze
+%quinze
+%seize
+f
