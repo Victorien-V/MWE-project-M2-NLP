@@ -43,7 +43,7 @@ def tuple2list(lem_tuple):
 		lem_list.append(list(elem))
 	return lem_list
 	
-def pop_ngram(lem_list, lem_gram, lex_gram):
+def pop_ngram(lem_list, lem_gram, lex_gram, mwe_list):
 	"""
 	vérifie les n-gram d'un lexique sont présents dans une liste
 	de n-grams et les supprime le cas échéant
@@ -57,14 +57,14 @@ def pop_ngram(lem_list, lem_gram, lex_gram):
 	new_lem_gram = tuple2list(lem_gram)
 	for elem in new_lem_gram:
 			if elem in lex_gram:
-				print(elem)
+				mwe_list.append(elem)
 				try:
 					for token in elem:
 						lem_list.remove(token)
 				except:
 					pass
 					
-	return lem_list
+	return lem_list, mwe_list
 	
 #------Variables------
 p_corpus="fr_spoken-ud-train.conllu" #chemin du corpus
@@ -85,14 +85,24 @@ if __name__ == '__main__':
 	#on commencera par les mwe les plus longues, qu'on supprimera au fur et à mesure
 	#afin d'éviter les doublons tels que "dès lors que" / "dès lors"
 	for phrase in corpus:
-		print(phrase.id)
+		mwe_list = list()
 		# on imprime l'id de l'arbre et les mwe trouvées grâce à la fonction pop_ngrams
-		new_list = pop_ngram(phrase.lem_list, phrase.lem_5g, lex_5g)
+		new_list, mwe_list = pop_ngram(phrase.lem_list, phrase.lem_5g, lex_5g, mwe_list)
 		lem_4g = nltk.ngrams(new_list, 4)
-		new_list = pop_ngram(new_list, phrase.lem_4g, lex_4g)
+		new_list, mwe_list = pop_ngram(new_list, phrase.lem_4g, lex_4g, mwe_list)
 		lem_3g = nltk.trigrams(new_list)
-		new_list = pop_ngram(new_list, phrase.lem_3g, lex_3g)
+		new_list, mwe_list = pop_ngram(new_list, phrase.lem_3g, lex_3g, mwe_list)
 		lem_2g = nltk.bigrams(new_list)
-		new_list = pop_ngram(new_list, phrase.lem_2g, lex_2g)
+		new_list, mwe_list = pop_ngram(new_list, phrase.lem_2g, lex_2g, mwe_list)
+		if len(mwe_list) > 0:
+			line = ""
+			line += phrase.id
+			line += "\t"
+			for elem in mwe_list:
+				for token in elem:
+					line += token
+					line += " "
+				line += "\t"
+			print(line)
 
 	# print(*map(' '.join, corpus[8].lem_2g), sep=', ')
