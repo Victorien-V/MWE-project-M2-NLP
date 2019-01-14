@@ -1,16 +1,16 @@
-#### Projet universitaire dans le cadre du master 2 TAL Plurital (Inalco-Nanterre-Paris III)
+# Projet universitaire dans le cadre du master 2 TAL Plurital (Inalco-Nanterre-Paris III)
 #### Matière
 Langage de script (programmation Python pour le TAL)
 
-#### Auteurs
+##### Auteurs
 Aline Etienne, Elena Edelman, Victorien Villiers
 
-#### Sujet du projet
+##### Sujet du projet
 Gestion de MWEs dans un fichier conllu
 
 #### Lien vers le git : https://github.com/Victorien-V/MWE-project-M2-NLP
 
-#### Corpus
+# Corpus
 Corpus universel du français parlé au format conllu convertie automatiquement depuis le treebank Rhapsodie (http://www.projet-rhapsodie.fr/).
 
 Divisé en 3 sous-corpus (train, dev, test) :
@@ -26,13 +26,13 @@ Résumé :
 + Documentation : corpus annoté issus des travaux réalisés par les équipes de MODYCO, de l'IRCAM, du LATTICE, de l'ERSS et du LPL. Lien vers les publications : https://www.projet-rhapsodie.fr/bibliographie/
 + Licence et droit d'utilisation : Licence Creative Commons Attribution, citation des sources des corpus dans le respect des propriétés intellectuelles selon qu'il s'agisse de corpus externe ou interne 
 
-#### Travail définitoire
+# Travail définitoire
 voir le fichier "resume_KahaneCourtinGerdes.txt"
 
-#### Liens utiles
+# Liens utiles
 voir le fichier "liens_utiles.txt"
 
-#### Résumé du projet et étapes
+# Résumé du projet et étapes
 
 Pour ce projet, notre objectif est de pouvoir gérer les Multi-Word Expressions (MWE) présentes dans un fichier `.conllu`.
 
