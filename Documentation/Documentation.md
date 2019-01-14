@@ -19,11 +19,12 @@ Divisé en 3 sous-corpus (train, dev, test) :
 + fr_spoken-ud-test.conllu  726 sentences 10010 tokens
 + total 2786 sentences 34972 tokens
 
-Échantillonnage et genre : corpus de français parlé annoté pour la prosodie et la syntaxe, intégrant des informations sur les rections, dépendances (arbres syntaxiques ou treebank) et catégories grammaticales au format tabulaire
-Modalité : oral, échantillon de 30 heures de parole, regroupant des transcriptions d'interview, de parole libre, de commentaires sportifs, etc. issus d'une compilation de corpus externes et internes au projet
-Taille : retranscription de 30h de parole
-Documentation : corpus annoté issus des travaux réalisés par les équipes de MODYCO, de l'IRCAM, du LATTICE, de l'ERSS et du LPL. Lien vers les publications : https://www.projet-rhapsodie.fr/bibliographie/
-Licence et droit d'utilisation : Licence Creative Commons Attribution, citation des sources des corpus dans le respect des propriétés intellectuelles selon qu'il s'agisse de corpus externe ou interne 
+Résumé :
++ Échantillonnage et genre : corpus de français parlé annoté pour la prosodie et la syntaxe, intégrant des informations sur les rections, dépendances (arbres syntaxiques ou treebank) et catégories grammaticales au format tabulaire
++ Modalité : oral, échantillon de 30 heures de parole, regroupant des transcriptions d'interview, de parole libre, de commentaires sportifs, etc. issus d'une compilation de corpus externes et internes au projet
++ Taille : retranscription de 30h de parole
++ Documentation : corpus annoté issus des travaux réalisés par les équipes de MODYCO, de l'IRCAM, du LATTICE, de l'ERSS et du LPL. Lien vers les publications : https://www.projet-rhapsodie.fr/bibliographie/
++ Licence et droit d'utilisation : Licence Creative Commons Attribution, citation des sources des corpus dans le respect des propriétés intellectuelles selon qu'il s'agisse de corpus externe ou interne 
 
 #### Travail définitoire
 voir le fichier "resume_KahaneCourtinGerdes.txt"
